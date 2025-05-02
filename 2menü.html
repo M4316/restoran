@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tost Tiyatrosu Menü</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20220428/pngtree-european-style-golden-pattern-background-red-background-wedding-image_1074468.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .üst_kutu {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2c1920;
+            border: 2px solid #ffffff;
+            border-radius: 40px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            z-index: 999;
+            width: 90%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        .üst_kutu h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 30px;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .üst_kutu img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background-color: #2c1920;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-item h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .menu-item p {
+            margin: 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .fiyat {
+            font-size: 14px;
+            color: #ffd700;
+        }
+
+        .bayrak-kutu {
+            background-color: #2c1920;
+            border: 2px solid #ffffff;
+            padding: 8px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: fixed;
+            top: 90px;
+            left: 20%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            flex-direction: column;   /* BU SATIR: İçerikleri dikey dizer */
+            width: 40px;              /* Dar genişlik */
+            height: 200px;    
+        }
+
+
+        .bayrak-kutu img {
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bayrak-kutu img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .bayrak-kutu img:active {
+            transform: scale(1.4) rotate(10deg);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+
+        .alt-kutu {
+            width: 90%;
+            background-color: #2c1920;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Pacifico', cursive;
+            margin: 40px auto;
+            border-radius: 10px;
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .üst_kutu h1 {
+                font-size: 20px;
+            }
+
+            .üst_kutu img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .menu-item img {
+                width: 80px;
+            }
+        }
+    </style>
+     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bayrak-kutu">
+        <img src="https://flagcdn.com/w40/tr.png" alt="Türk Bayrağı" onclick="changeLanguage('tr')">
+        <img src="https://flagcdn.com/w40/gb.png" alt="Birleşik Krallık Bayrağı" onclick="changeLanguage('en')">
+        <img src="https://flagcdn.com/w40/sa.png" alt="Suudi Arabistan Bayrağı" onclick="changeLanguage('ar')">
+        <img src="https://flagcdn.com/w40/es.png" alt="İspanya Bayrağı" onclick="changeLanguage('es')">
+    </div>
+
+    <div class="üst_kutu">
+        <h1 class="title"><span id="menu-title">TOST TİYATROSU</span></h1>
+        <a href="https://www.instagram.com/tost.tiyatrosu/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+        </a>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item">
+            <h3 class="menu1" id="menu1-title">Gişe Tostu</h3>
+            <p id="menu1-description">Sucuk ve kaşarın, özel baharatımız eşliğinde; Salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu1-price">Yarım: 160 TL, Tam: 280 TL, Bazlama: 260 TL</p>
+            <img src="2. sayfa 1.jpg" alt="Gişe Tostu Görseli"> <!-- Gişe Tostu görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu2" id="menu2-title">Sucuklu Monolog Tostu</h3>
+            <p id="menu2-description">Rengini perdemizden alan sucukların, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu2-price">Yarım: 150 TL, Tam: 260 TL, Bazlama: 240 TL</p>
+            <img src="2. sayfa 2.jpg" alt="Sucuklu Monolog Tostu Görseli"> <!-- Sucuklu Monolog Tostu görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu3" id="menu3-title">Tragedya Tostu</h3>
+            <p id="menu3-description">Gözyaşı gibi eriyen bol kaşarın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu3-price">Yarım: 150 TL, Tam: 260 TL, Bazlama: 240 TL</p>
+            <img src="2. sayfa 3.jpg" alt="Tragedya Tostu Görseli"> <!-- Tragedya Tostu görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu4" id="menu4-title">Kahvaltı Kabaresi</h3>
+            <p id="menu4-description">Sabah kahvaltılarının vazgeçilmezi olan yumurtanın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu4-price">Yarım: 180 TL, Tam: 320 TL, Bazlama: 280 TL</p>
+            <img src="2. sayfa 4.jpg" alt="Kahvaltı Kabaresi Görseli"> <!-- Kahvaltı Kabaresi görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu5" id="menu5-title">Yengen Komedisi</h3>
+            <p id="menu5-description">Sucuk, Kaşar ve Domatesin, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu5-price">Yarım: 170 TL, Tam: 300 TL, Bazlama: 280 TL</p>
+            <img src="2. sayfa 5.jpg" alt="Yengen Komedisi Görseli"> <!-- Yengen Komedisi görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu6" id="menu6-title">Kavurma Provası</h3>
+            <p id="menu6-description">Kavurma'nın Kekik eşliğinde, Salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu6-price">Yarım: 220 TL, Tam: 400 TL, Bazlama: 380 TL</p>
+            <img src="2. sayfa 6.jpg" alt="Kavurma Provası Görseli"> <!-- Kavurma Provası görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu7" id="menu7-title">Kavurma Draması</h3>
+            <p id="menu7-description">Gözyaşı gibi eriyen bol kaşarın; kekikli kavurma etiyle harmanlandığı, salça üzerindeki muhteşem lezzet.</p>
+            <p class="fiyat" id="menu7-price">Yarım: 240 TL, Tam: 440 TL, Bazlama: 420 TL</p>
+            <img src="2. sayfa 7.jpg" alt="Kavurma Draması Görseli"> <!-- Kavurma Draması görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu8" id="menu8-title">Köfte Ekmek</h3>
+            <p id="menu8-description">Köfte, Domates ve Soğanın eşlik ettiği klasikleşen lezzet.</p>
+            <p class="fiyat" id="menu8-price">Yarım: 220 TL, Tam: 360 TL, Bazlama: 340 TL</p>
+            <img src="2. sayfa 8.jpg" alt="Köfte Ekmek Görseli"> <!-- Köfte Ekmek görseli -->
+        </div>
+    </div>
+    <div class="alt-kutu">
+        <span class="description" id="description">Eşsiz lezzetleri ve muhteşem sunumlarıyla, yıldızlar için perde açılıyor.</span>
+    </div>
+
+    <script>
+        const translations = {
+            tr: {
+                title: "TOST TİYATROSU",
+                menu1: {
+                    title: "Gişe Tostu",
+                    description: "Sucuk ve kaşarın, özel baharatımız eşliğinde; Salça üzerindeki muhteşem buluşması.",
+                    price: "Yarım: 160 TL, Tam: 280 TL, Bazlama: 260 TL"
+                },
+                menu2: {
+                    title: "Sucuklu Monolog Tostu",
+                    description: "Rengini perdemizden alan sucukların, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Yarım: 150 TL, Tam: 260 TL, Bazlama: 240 TL"
+                },
+                menu3: {
+                    title: "Tragedya Tostu",
+                    description: "Gözyaşı gibi eriyen bol kaşarın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Yarım: 150 TL, Tam: 260 TL, Bazlama: 240 TL"
+                },
+                menu4: {
+                    title: "Kahvaltı Kabaresi",
+                    description: "Sabah kahvaltılarının vazgeçilmezi olan yumurtanın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Yarım: 180 TL, Tam: 320 TL, Bazlama: 280 TL"
+                },
+                menu5: {
+                    title: "Yengen Komedisi",
+                    description: "Sucuk, Kaşar ve Domatesin, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Yarım: 170 TL, Tam: 300 TL, Bazlama: 280 TL"
+                },
+                menu6: {
+                    title: "Kavurma Provası",
+                    description: "Kavurma'nın Kekik eşliğinde, Salça üzerindeki muhteşem buluşması.",
+                    price: "Yarım: 220 TL, Tam: 400 TL, Bazlama: 380 TL"
+                },
+                menu7: {
+                    title: "Kavurma Draması",
+                    description: "Gözyaşı gibi eriyen bol kaşarın; kekikli kavurma etiyle harmanlandığı, salça üzerindeki muhteşem lezzet.",
+                    price: "Yarım: 240 TL, Tam: 440 TL, Bazlama: 420 TL"
+                },
+                menu8: {
+                    title: "Köfte Ekmek",
+                    description: "Köfte, Domates ve Soğanın eşlik ettiği klasikleşen lezzet.",
+                    price: "Yarım: 220 TL, Tam: 360 TL, Bazlama: 340 TL"
+                },
+                description: "Eşsiz lezzetleri ve muhteşem sunumlarıyla, yıldızlar için perde açılıyor."
+            },
+            en: {
+                title: "TOAST THEATER",
+                menu1: {
+                    title: "Ticket Toast",
+                    description: "The wonderful combination of sausage and cheese, with our special spices on top of tomato paste.",
+                    price: "Half: 160 TL, Full: 280 TL, Pita: 260 TL"
+                },
+                menu2: {
+                    title: "Sausage Monologue Toast",
+                    description: "Sausages colored by our stage, combined with our special spices and tomato paste.",
+                    price: "Half: 150 TL, Full: 260 TL, Pita: 240 TL"
+                },
+                menu3: {
+                    title: "Tragedy Toast",
+                    description: "The melting cheese like tears, combined with our special spices and tomato paste.",
+                    price: "Half: 150 TL, Full: 260 TL, Pita: 240 TL"
+                },
+                menu4: {
+                    title: "Breakfast Cabaret",
+                    description: "Eggs, the indispensable part of breakfast, combined with our special spices and tomato paste.",
+                    price: "Half: 180 TL, Full: 320 TL, Pita: 280 TL"
+                },
+                menu5: {
+                    title: "Sister-in-Law Comedy",
+                    description: "Sausage, Cheese, and Tomato, combined with our special spices and tomato paste.",
+                    price: "Half: 170 TL, Full: 300 TL, Pita: 280 TL"
+                },
+                menu6: {
+                    title: "Roast Trial",
+                    description: "Roast with thyme, combined with tomato paste.",
+                    price: "Half: 220 TL, Full: 400 TL, Pita: 380 TL"
+                },
+                menu7: {
+                    title: "Roast Drama",
+                    description: "The melting cheese with roasted meat flavored with thyme, combined with tomato paste.",
+                    price: "Half: 240 TL, Full: 440 TL, Pita: 420 TL"
+                },
+                menu8: {
+                    title: "Meatball Sandwich",
+                    description: "Classic flavor of meatballs, tomato, and onion.",
+                    price: "Half: 220 TL, Full: 360 TL, Pita: 340 TL"
+                },
+                description: "The curtains open for stars with unique flavors and magnificent presentations."
+            },
+            ar: {
+                title: "مسرح التوست",
+                menu1: {
+                    title: "توست التذاكر",
+                    description: "مزيج رائع من النقانق والجبن مع توابلنا الخاصة على معجون الطماطم.",
+                    price: "نصف: 160 ليرة تركية، كامل: 280 ليرة تركية، بيتا: 260 ليرة تركية"
+                },
+                menu2: {
+                    title: "توست المونولوج بالسجق",
+                    description: "النقانق التي تأخذ لونها من مسرحنا، مع توابلنا الخاصة ومعجون الطماطم.",
+                    price: "نصف: 150 ليرة تركية، كامل: 260 ليرة تركية، بيتا: 240 ليرة تركية"
+                },
+                menu3: {
+                    title: "توست التراجيديا",
+                    description: "الجبن الذي يذوب كالدموع، مع توابلنا الخاصة ومعجون الطماطم.",
+                    price: "نصف: 150 ليرة تركية، كامل: 260 ليرة تركية، بيتا: 240 ليرة تركية"
+                },
+                menu4: {
+                    title: "كاباريه الإفطار",
+                    description: "البيض، جزء لا يتجزأ من وجبة الإفطار، مع توابلنا الخاصة ومعجون الطماطم.",
+                    price: "نصف: 180 ليرة تركية، كامل: 320 ليرة تركية، بيتا: 280 ليرة تركية"
+                },
+                menu5: {
+                    title: "كوميديا الحماة",
+                    description: "النقانق، الجبن، والطماطم، مع توابلنا الخاصة ومعجون الطماطم.",
+                    price: "نصف: 170 ليرة تركية، كامل: 300 ليرة تركية، بيتا: 280 ليرة تركية"
+                },
+                menu6: {
+                    title: "اختبار اللحم المقدد",
+                    description: "اللحم المقدد مع الزعتر، مع معجون الطماطم.",
+                    price: "نصف: 220 ليرة تركية، كامل: 400 ليرة تركية، بيتا: 380 ليرة تركية"
+                },
+                menu7: {
+                    title: "دراما اللحم المقدد",
+                    description: "الجبن الذي يذوب مع اللحم المقدد المعطر بالزعتر، مع معجون الطماطم.",
+                    price: "نصف: 240 ليرة تركية، كامل: 440 ليرة تركية، بيتا: 420 ليرة تركية"
+                },
+                menu8: {
+                    title: "ساندويتش الكفتة",
+                    description: "النكهة الكلاسيكية للكفتة والطماطم والبصل.",
+                    price: "نصف: 220 ليرة تركية، كامل: 360 ليرة تركية، بيتا: 340 ليرة تركية"
+                },
+                description: "تفتح الستائر للنجوم مع نكهات فريدة وعروض مذهلة."
+            },
+            es: {
+                title: "TEATRO DE TOSTADAS",
+                menu1: {
+                    title: "Tostada de Entrada",
+                    description: "La maravillosa combinación de salchichón y queso, con nuestras especias especiales sobre tomate frito.",
+                    price: "Mitad: 160 TL, Completo: 280 TL, Pita: 260 TL"
+                },
+                menu2: {
+                    title: "Monólogo de Salchichón",
+                    description: "Las salchichas, coloreadas por nuestro escenario, combinadas con nuestras especias y tomate frito.",
+                    price: "Mitad: 150 TL, Completo: 260 TL, Pita: 240 TL"
+                },
+                menu3: {
+                    title: "Tostada de Tragedia",
+                    description: "El queso derritiéndose como lágrimas, combinado con nuestras especias especiales y tomate frito.",
+                    price: "Mitad: 150 TL, Completo: 260 TL, Pita: 240 TL"
+                },
+                menu4: {
+                    title: "Cabaret de Desayuno",
+                    description: "Huevos, la parte indispensable del desayuno, combinados con nuestras especias y tomate frito.",
+                    price: "Mitad: 180 TL, Completo: 320 TL, Pita: 280 TL"
+                },
+                menu5: {
+                    title: "Comedia de la Suegra",
+                    description: "Salchichón, queso y tomate, combinados con nuestras especias especiales y tomate frito.",
+                    price: "Mitad: 170 TL, Completo: 300 TL, Pita: 280 TL"
+                },
+                menu6: {
+                    title: "Prueba de Carne Asada",
+                    description: "Carne asada con tomillo, combinada con tomate frito.",
+                    price: "Mitad: 220 TL, Completo: 400 TL, Pita: 380 TL"
+                },
+                menu7: {
+                    title: "Drama de Carne Asada",
+                    description: "El queso derretido con carne asada sazonada con tomillo, combinado con tomate frito.",
+                    price: "Mitad: 240 TL, Completo: 440 TL, Pita: 420 TL"
+                },
+                menu8: {
+                    title: "Sándwich de Albóndigas",
+                    description: "Sabor clásico de albóndigas, tomate y cebolla.",
+                    price: "Mitad: 220 TL, Completo: 360 TL, Pita: 340 TL"
+                },
+                description: "Las cortinas se abren para las estrellas con sabores únicos y presentaciones impresionantes."
+            }
+        };
+    
+        function changeLanguage(lang) {
+            document.getElementById("menu-title").innerText = translations[lang].title;
+            document.getElementById("menu1-title").innerText = translations[lang].menu1.title;
+            document.getElementById("menu1-description").innerText = translations[lang].menu1.description;
+            document.getElementById("menu1-price").innerText = translations[lang].menu1.price;
+    
+            document.getElementById("menu2-title").innerText = translations[lang].menu2.title;
+            document.getElementById("menu2-description").innerText = translations[lang].menu2.description;
+            document.getElementById("menu2-price").innerText = translations[lang].menu2.price;
+    
+            document.getElementById("menu3-title").innerText = translations[lang].menu3.title;
+            document.getElementById("menu3-description").innerText = translations[lang].menu3.description;
+            document.getElementById("menu3-price").innerText = translations[lang].menu3.price;
+    
+            document.getElementById("menu4-title").innerText = translations[lang].menu4.title;
+            document.getElementById("menu4-description").innerText = translations[lang].menu4.description;
+            document.getElementById("menu4-price").innerText = translations[lang].menu4.price;
+    
+            document.getElementById("menu5-title").innerText = translations[lang].menu5.title;
+            document.getElementById("menu5-description").innerText = translations[lang].menu5.description;
+            document.getElementById("menu5-price").innerText = translations[lang].menu5.price;
+    
+            document.getElementById("menu6-title").innerText = translations[lang].menu6.title;
+            document.getElementById("menu6-description").innerText = translations[lang].menu6.description;
+            document.getElementById("menu6-price").innerText = translations[lang].menu6.price;
+    
+            document.getElementById("menu7-title").innerText = translations[lang].menu7.title;
+            document.getElementById("menu7-description").innerText = translations[lang].menu7.description;
+            document.getElementById("menu7-price").innerText = translations[lang].menu7.price;
+    
+            document.getElementById("menu8-title").innerText = translations[lang].menu8.title;
+            document.getElementById("menu8-description").innerText = translations[lang].menu8.description;
+            document.getElementById("menu8-price").innerText = translations[lang].menu8.price;
+    
+            document.getElementById("description").innerText = translations[lang].description;
+        }
+    </script>
+    
+</body>
+</html>

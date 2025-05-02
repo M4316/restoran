@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tost Tiyatrosu Menü</title>
+    <style>
+        body {
+            background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20220428/pngtree-european-style-golden-pattern-background-red-background-wedding-image_1074468.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .üst_kutu {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2c1920;
+            border: 2px solid #ffffff;
+            border-radius: 40px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            z-index: 999;
+            width: 90%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        .üst_kutu h1 {
+            font-size: 30px;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .üst_kutu img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background-color: #2c1920;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-item h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+
+        .menu-item p {
+            margin: 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .fiyat {
+            font-weight: normal;
+            font-size: 14px;
+            color: #ffd700; /* Gold color for prices */
+        }
+
+        .bayrak-kutu {
+            background-color: #2c1920;
+            border: 2px solid #ffffff;
+            padding: 8px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: fixed;
+            top: 90px;
+            left: 20%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            flex-direction: column;   /* BU SATIR: İçerikleri dikey dizer */
+            width: 40px;              /* Dar genişlik */
+            height: 200px;  
+        }
+
+        .bayrak-kutu img {
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bayrak-kutu img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .bayrak-kutu img:active {
+            transform: scale(1.4) rotate(10deg);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .alt-kutu {
+            width: 100%;
+            background-color: #2c1920;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .menu-item img {
+            margin-top: 10px;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .üst_kutu {
+                padding: 10px;
+                flex-direction: column;
+                align-items: center;
+                width: 95%;
+            }
+            
+            .menu-item {
+                max-width: 100%;
+            }
+
+            .menu-item h3 {
+                font-size: 16px;
+            }
+
+            .menu-item p {
+                font-size: 14px;
+            }
+
+            .fiyat {
+                font-size: 12px;
+            }
+            
+            .kutu {
+                width: 60px;
+                height: 30px;
+            }
+
+            .kutu img {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .bayrak-kutu {
+                width: 90%;
+                flex-wrap: wrap;
+            }
+
+            .bayrak-kutu img {
+                width: 20px;
+                height: auto;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bayrak-kutu">
+        <img src="https://flagcdn.com/w40/tr.png" alt="Türk Bayrağı" onclick="changeLanguage('tr')">
+        <img src="https://flagcdn.com/w40/gb.png" alt="Birleşik Krallık Bayrağı" onclick="changeLanguage('en')">
+        <img src="https://flagcdn.com/w40/sa.png" alt="Suudi Arabistan Bayrağı" onclick="changeLanguage('ar')">
+        <img src="https://flagcdn.com/w40/es.png" alt="İspanya Bayrağı" onclick="changeLanguage('es')">
+    </div>
+
+    <div class="üst_kutu">
+        <h1 class="title"><span id="menu-title">TOST TİYATROSU</span> </h1>
+        <a href="https://www.instagram.com/tost.tiyatrosu/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+        </a>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item">
+            <h3 class="menu1" id="menu1-title">Karışık Kare Tost</h3>
+            <p id="menu1-description">Sucuk ve kaşarın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu1-price">Fiyat: 100 TL</p>
+            <img src="3. sayfa 1.jpg" alt="Karışık Kare Tost Görseli"> <!-- Karışık Kare Tost görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu2" id="menu2-title">Kaşarlı Kare Tost</h3>
+            <p id="menu2-description">Gözyaşı gibi eriyen bol kaşarın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu2-price">Fiyat: 90 TL</p>
+            <img src="3. sayfa 2.jpg" alt="Kaşarlı Kare Tost Görseli"> <!-- Kaşarlı Kare Tost görseli -->
+        </div>
+        <div class="menu-item">
+            <h3 class="menu3" id="menu3-title">Sucuklu Kare Tost</h3>
+            <p id="menu3-description">Rengini perdemizden alan sucukların, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.</p>
+            <p class="fiyat" id="menu3-price">Fiyat: 90 TL</p>
+            <img src="3. sayfa 3.jpg" alt="Sucuklu Kare Tost Görseli"> <!-- Sucuklu Kare Tost görseli -->
+        </div>
+    </div>
+    
+    <div class="alt-kutu">
+        <span class="description" id="description">Eşsiz lezzetleri ve muhteşem sunumlarıyla, yıldızlar için perde açılıyor.</span>
+    </div>
+
+    <script>
+        const translations = {
+            tr: {
+                title: "TOST TİYATROSU",
+                menu1: {
+                    title: "Karışık Kare Tost",
+                    description: "Sucuk ve kaşarın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Fiyat: 100 TL"
+                },
+                menu2: {
+                    title: "Kaşarlı Kare Tost",
+                    description: "Gözyaşı gibi eriyen bol kaşarın, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Fiyat: 90 TL"
+                },
+                menu3: {
+                    title: "Sucuklu Kare Tost",
+                    description: "Rengini perdemizden alan sucukların, özel baharatımız eşliğinde; salça üzerindeki muhteşem buluşması.",
+                    price: "Fiyat: 90 TL"
+                },
+                description: "Eşsiz lezzetleri ve muhteşem sunumlarıyla, yıldızlar için perde açılıyor."
+            },
+            en: {
+                title: "TOAST THEATER",
+                menu1: {
+                    title: "Mixed Square Toast",
+                    description: "A marvelous union of sausage and cheese with our special spices; on top of the sauce.",
+                    price: "Price: 100 TL"
+                },
+                menu2: {
+                    title: "Cheesy Square Toast",
+                    description: "Cheddar that melts like tears, with our special spices; a marvelous union on the sauce.",
+                    price: "Price: 90 TL"
+                },
+                menu3: {
+                    title: "Sausage Square Toast",
+                    description: "Sausages that get their color from our curtain, along with our special spices; a marvelous union on the sauce.",
+                    price: "Price: 90 TL"
+                },
+                description: "The curtain rises for stars with unique flavors and magnificent presentations."
+            },
+            es: {
+                title: "TEATRO DE TOSTADAS",
+                menu1: {
+                    title: "Tostada Cuadrada Mixta",
+                    description: "Una maravillosa unión de salchichas y queso con nuestras especias especiales; sobre la salsa.",
+                    price: "Precio: 100 TL"
+                },
+                menu2: {
+                    title: "Tostada Cuadrada con Queso",
+                    description: "Queso cheddar que se derrite como lágrimas, con nuestras especias especiales; una maravillosa unión sobre la salsa.",
+                    price: "Precio: 90 TL"
+                },
+                menu3: {
+                    title: "Tostada Cuadrada de Salchicha",
+                    description: "Salchichas que obtienen su color de nuestra cortina, junto con nuestras especias especiales; una maravillosa unión sobre la salsa.",
+                    price: "Precio: 90 TL"
+                },
+                description: "El telón se levanta para las estrellas con sabores únicos y presentaciones magníficas."
+            },
+            ar: {
+                title: "مسرح التوست",
+                menu1: {
+                    title: "توست مربع مختلط",
+                    description: "اتحاد رائع للنقانق والجبن مع توابلنا الخاصة؛ فوق الصلصة.",
+                    price: "السعر: 100 ليرة تركية"
+                },
+                menu2: {
+                    title: "توست مربع بالجبن",
+                    description: "جبنة تشيدر تذوب كدموع، مع توابلنا الخاصة؛ اتحاد رائع على الصلصة.",
+                    price: "السعر: 90 ليرة تركية"
+                },
+                menu3: {
+                    title: "توست مربع بالنقانق",
+                    description: "نقانق تأخذ لونها من ستارنا، مع توابلنا الخاصة؛ اتحاد رائع على الصلصة.",
+                    price: "السعر: 90 ليرة تركية"
+                },
+                description: "يرتفع الستار للنجوم مع نكهات فريدة من نوعها وعروض رائعة."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById("menu-title").innerText = translations[lang].title;
+            document.getElementById("menu1-title").innerText = translations[lang].menu1.title;
+            document.getElementById("menu1-description").innerText = translations[lang].menu1.description;
+            document.getElementById("menu1-price").innerText = translations[lang].menu1.price;
+            
+            document.getElementById("menu2-title").innerText = translations[lang].menu2.title;
+            document.getElementById("menu2-description").innerText = translations[lang].menu2.description;
+            document.getElementById("menu2-price").innerText = translations[lang].menu2.price;
+            
+            document.getElementById("menu3-title").innerText = translations[lang].menu3.title;
+            document.getElementById("menu3-description").innerText = translations[lang].menu3.description;
+            document.getElementById("menu3-price").innerText = translations[lang].menu3.price;
+
+            document.getElementById("description").innerText = translations[lang].description;
+        }
+    </script>
+</body>
+</html>
