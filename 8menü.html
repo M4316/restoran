@@ -60,7 +60,7 @@
             color: white;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            width: 90%;
+            width: 80%;
             max-width: 300px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -97,15 +97,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 25px;
             position: fixed;
             top: 90px;
-            left: 20%;
+            left: 7%;
             transform: translateX(-50%);
             z-index: 1000;
             flex-direction: column;   /* BU SATIR: İçerikleri dikey dizer */
-            width: 40px;              /* Dar genişlik */
-            height: 200px;     
+            width: 25px;              /* Dar genişlik */
+            height: 200px;    
         }
 
         .bayrak-kutu img {
@@ -141,6 +141,20 @@
             height: auto;
             border-radius: 5px;
             margin-top: 10px;
+        }
+        @media only screen and (max-width: 768px) {
+            .üst_kutu h1 {
+                font-size: 20px;
+            }
+
+            .üst_kutu img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .menu-image {
+                width: 80px;
+            }
         }
     </style>
 </head>
